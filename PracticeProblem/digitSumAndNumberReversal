@@ -1,0 +1,24 @@
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int temp = n;
+    int sum = 0;
+    int reverse = 0;
+
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += digit;
+        reverse = reverse * 10 + digit;
+        temp /= 10;
+    }
+
+    cout << "Sum of digits: " << sum << endl;
+    cout << "Reverse: " << reverse << endl;
+
+    return 0;
+}

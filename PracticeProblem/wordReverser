@@ -1,0 +1,23 @@
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string word;
+    cin >> word;
+
+    string reversed = word;
+    reverse(reversed.begin(), reversed.end());
+
+    cout << reversed << " - ";
+
+    if (word == reversed) {
+        cout << "palindrome" << endl;
+    } else {
+        cout << "not a palindrome" << endl;
+    }
+
+    return 0;
+}

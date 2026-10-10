@@ -1,0 +1,56 @@
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
+
+class Student {
+    string name;
+    int marks[3];
+
+public:
+    Student(string n, int m[]) {
+        name = n;
+        for (int i = 0; i < 3; i++) {
+            marks[i] = m[i];
+        }
+    }
+
+    double calculateAverage() {
+        return (marks[0] + marks[1] + marks[2]) / 3.0;
+    }
+
+    char calculateGrade() {
+        double avg = calculateAverage();
+
+        if (avg >= 75)
+            return 'B';
+        else if (avg >= 60)
+            return 'C';
+        else if (avg >= 40)
+            return 'D';
+        else
+            return 'F';
+    }
+
+    void displayResult() {
+        transform(name.begin(), name.end(), name.begin(), ::toupper);
+
+        cout << name << ": Average "
+             << fixed << setprecision(1) << calculateAverage()
+             << ", Grade " << calculateGrade() << endl;
+    }
+};
+
+int main() {
+    string name;
+    int marks[3];
+
+    while (cin >> name >> marks[0] >> marks[1] >> marks[2]) {
+        Student s(name, marks);
+        s.displayResult();
+    }
+
+    return 0;
+}

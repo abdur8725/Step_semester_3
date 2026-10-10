@@ -1,0 +1,45 @@
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<string> rotateRoster(vector<string>& names, long long k) {
+    int n = names.size();
+    k = k % n;
+
+    vector<string> rotated(n);
+
+    for (int i = 0; i < n; i++) {
+        rotated[(i + k) % n] = names[i];
+    }
+
+    return rotated;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<string> names(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> names[i];
+    }
+
+    long long k;
+    cin >> k;
+
+    vector<string> result = rotateRoster(names, k);
+
+    cout << "[";
+    for (int i = 0; i < n; i++) {
+        cout << result[i];
+        if (i < n - 1) {
+            cout << ", ";
+        }
+    }
+    cout << "]" << endl;
+
+    return 0;
+}
